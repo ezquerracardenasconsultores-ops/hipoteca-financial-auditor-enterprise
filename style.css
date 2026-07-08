@@ -1,300 +1,877 @@
-/* =======================================================
-   HIPOTECA FINANCIAL AUDITOR ENTERPRISE 2.0
-======================================================= */
+/* =====================================================
+   HIPOTECA FINANCIAL AUDITOR ENTERPRISE
+   VERSION 2.0
+===================================================== */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+
 }
 
 body{
-    background:#eef3f9;
-    display:flex;
+
+    background:#eef3f8;
+
     color:#1f2937;
+
+    display:flex;
+
 }
 
-/* ================= SIDEBAR ================= */
+/* ==========================================
+SIDEBAR
+========================================== */
 
 .sidebar{
+
     width:260px;
-    min-height:100vh;
+
     background:#0f172a;
-    color:#fff;
+
+    color:white;
+
+    min-height:100vh;
+
     position:fixed;
+
     left:0;
+
     top:0;
-    padding:30px 20px;
+
+    padding:25px;
+
 }
 
 .logo{
+
     text-align:center;
+
     margin-bottom:40px;
+
 }
 
 .logo h1{
-    font-size:34px;
+
+    font-size:36px;
+
 }
 
 .logo p{
+
     color:#94a3b8;
+
     margin-top:10px;
+
 }
 
 .sidebar ul{
+
     list-style:none;
+
 }
 
 .sidebar li{
+
     padding:15px;
+
     margin-bottom:10px;
+
     border-radius:10px;
+
     cursor:pointer;
-    transition:.3s;
+
+    transition:.30s;
+
 }
 
 .sidebar li:hover{
+
     background:#2563eb;
+
 }
 
-.sidebar .activo{
-    background:#2563eb;
-}
+.sidebar li.activo{
 
-/* ================= MAIN ================= */
+    background:#2563eb;
+
+}
+/* ==========================================
+CONTENIDO PRINCIPAL
+========================================== */
 
 .main{
+
     margin-left:260px;
+
     width:calc(100% - 260px);
+
     padding:35px;
+
 }
 
+/* ==========================================
+HEADER
+========================================== */
+
 header{
+
     background:white;
+
     border-radius:15px;
+
     padding:25px;
+
     margin-bottom:25px;
+
     box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 }
 
 header h1{
+
     color:#0f172a;
+
+    font-size:30px;
+
 }
 
 header p{
-    margin-top:10px;
+
     color:#64748b;
+
+    margin-top:8px;
+
+    font-size:15px;
+
 }
 
-/* ================= KPIs ================= */
+/* ==========================================
+KPIs
+========================================== */
 
 .kpis{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
+
     margin-bottom:30px;
+
 }
 
 .card{
+
     background:white;
+
     border-radius:15px;
+
     padding:25px;
+
     text-align:center;
+
     box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
+
+    transition:.30s;
+
 }
 
 .card:hover{
+
     transform:translateY(-5px);
+
 }
 
 .card h3{
+
     color:#64748b;
-    margin-bottom:15px;
+
+    margin-bottom:12px;
+
+    font-size:16px;
+
 }
 
 .card p{
-    color:#2563eb;
-    font-size:28px;
-    font-weight:bold;
-}
 
-/* ================= PANEL ================= */
+    color:#2563eb;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+/* ==========================================
+PANEL PRINCIPAL
+========================================== */
 
 .panel{
+
     display:grid;
+
     grid-template-columns:340px 1fr;
+
     gap:25px;
+
     margin-bottom:30px;
+
 }
 
-.datos,
-.grafico{
+/* ==========================================
+FORMULARIO
+========================================== */
+
+.datos{
+
     background:white;
+
     border-radius:15px;
+
     padding:25px;
+
     box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 }
 
-.datos h2,
-.grafico h2{
+.datos h2{
+
     margin-bottom:20px;
+
+    color:#0f172a;
+
 }
 
-label{
+.datos label{
+
     display:block;
+
     margin-top:15px;
-    font-weight:bold;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#374151;
+
 }
 
-input{
+.datos input{
+
     width:100%;
-    margin-top:8px;
+
     padding:12px;
+
     border:1px solid #d1d5db;
+
     border-radius:8px;
+
     font-size:15px;
+
+    outline:none;
+
+    transition:.25s;
+
 }
 
-button{
+.datos input:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+/* ==========================================
+BOTÓN
+========================================== */
+
+.datos button{
+
     width:100%;
+
     margin-top:25px;
+
     padding:15px;
-    background:#2563eb;
-    color:white;
+
     border:none;
+
     border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
     font-size:16px;
+
+    font-weight:bold;
+
     cursor:pointer;
-    transition:.3s;
+
+    transition:.30s;
+
 }
 
-button:hover{
+.datos button:hover{
+
     background:#1d4ed8;
+
+}
+
+/* ==========================================
+DASHBOARD
+========================================== */
+
+.grafico{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.grafico h2{
+
+    margin-bottom:20px;
+
+    color:#0f172a;
+
 }
 
 .placeholder{
-    height:320px;
+
+    height:350px;
+
     border:2px dashed #cbd5e1;
+
     border-radius:12px;
+
     display:flex;
-    align-items:center;
-    justify-content:center;
+
     flex-direction:column;
-    font-size:28px;
-    color:#94a3b8;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#64748b;
+
+    text-align:center;
+
+    padding:20px;
+
 }
 
-/* ================= DICTAMEN ================= */
+.placeholder .icono{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+/* ==========================================
+OPINIÓN TÉCNICA
+========================================== */
 
 .dictamen{
+
     background:white;
+
     border-radius:15px;
-    padding:30px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
     box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 }
 
 .dictamen h2{
+
+    color:#0f172a;
+
     margin-bottom:20px;
+
 }
 
 #opinion{
+
     line-height:1.8;
-    font-size:16px;
-}
 
-/* ================= RESPONSIVE ================= */
+    font-size:15px;
 
-@media(max-width:1000px){
-
-    body{
-        display:block;
-    }
-
-    .sidebar{
-        position:relative;
-        width:100%;
-        min-height:auto;
-    }
-
-    .main{
-        margin-left:0;
-        width:100%;
-    }
-
-    .kpis{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .panel{
-        grid-template-columns:1fr;
-    }
+    color:#374151;
 
 }
 
-@media(max-width:650px){
-
-    .kpis{
-        grid-template-columns:1fr;
-    }
-
-}
-/* ================= CRONOGRAMA ================= */
+/* ==========================================
+CRONOGRAMA
+========================================== */
 
 .cronograma{
 
     background:white;
 
-    margin-top:30px;
+    border-radius:15px;
 
     padding:25px;
 
-    border-radius:15px;
+    margin-bottom:30px;
 
     box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 }
 
-.tabla{
+.titulo-seccion{
 
-    width:100%;
+    display:flex;
 
-    border-collapse:collapse;
+    justify-content:space-between;
 
-    margin-top:20px;
+    align-items:center;
+
+    margin-bottom:20px;
 
 }
 
-.tabla th{
+.titulo-seccion h2{
+
+    color:#0f172a;
+
+}
+
+#btnGenerarCronograma{
 
     background:#2563eb;
 
     color:white;
 
-    padding:12px;
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.30s;
 
 }
 
-.tabla td{
+#btnGenerarCronograma:hover{
 
-    padding:10px;
-
-    border-bottom:1px solid #ddd;
-
-    text-align:right;
+    background:#1d4ed8;
 
 }
 
-.tabla td:first-child,
-.tabla th:first-child{
+/* ==========================================
+TABLA
+========================================== */
+
+.tablaCronograma{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    font-size:14px;
+
+}
+
+.tablaCronograma thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.tablaCronograma th{
+
+    padding:14px;
 
     text-align:center;
 
 }
 
-.tabla tr:hover{
+.tablaCronograma td{
+
+    padding:12px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    text-align:right;
+
+}
+
+.tablaCronograma td:first-child{
+
+    text-align:center;
+
+}
+
+.tablaCronograma tr:hover{
 
     background:#f8fafc;
 
 }
+/* ==========================================
+INGENIERÍA FINANCIERA
+========================================== */
+
+.ingenieria{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.ingenieria h2{
+
+    color:#0f172a;
+
+    margin-bottom:20px;
+
+}
+
+.gridIngenieria{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.item{
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    transition:.30s;
+
+}
+
+.item:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+
+}
+
+.item h3{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+.item p{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#2563eb;
+
+}
+
+/* ==========================================
+AUDITORÍA
+========================================== */
+
+.auditoria{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.auditoria h2{
+
+    margin-bottom:20px;
+
+    color:#0f172a;
+
+}
+
+#auditoriaResultado{
+
+    background:#f8fafc;
+
+    border-left:5px solid #2563eb;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    line-height:1.8;
+
+    color:#374151;
+
+}
+
+/* ==========================================
+REPORTES
+========================================== */
+
+.reportes{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.reportes h2{
+
+    margin-bottom:20px;
+
+}
+
+.botonesReportes{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.botonesReportes button{
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.30s;
+
+}
+
+.botonesReportes button:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+
+.footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    border-top:1px solid #e5e7eb;
+
+}
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width:1200px){
+
+    .kpis{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .panel{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gridIngenieria{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    body{
+
+        display:block;
+
+    }
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        min-height:auto;
+
+        padding:20px;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .sidebar ul{
+
+        display:flex;
+
+        flex-wrap:wrap;
+
+        gap:10px;
+
+        justify-content:center;
+
+    }
+
+    .sidebar li{
+
+        margin-bottom:0;
+
+        text-align:center;
+
+        flex:1 1 45%;
+
+    }
+
+    .kpis{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gridIngenieria{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .titulo-seccion{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .botonesReportes{
+
+        flex-direction:column;
+
+    }
+
+    .botonesReportes button{
+
+        width:100%;
+
+    }
+
+    .tablaCronograma{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    header h1{
+
+        font-size:22px;
+
+    }
+
+    .card p{
+
+        font-size:22px;
+
+    }
+
+    .placeholder{
+
+        height:220px;
+
+    }
+
+}
+
+/* ==========================================
+FIN DEL ARCHIVO
+========================================== */
