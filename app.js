@@ -665,6 +665,37 @@ function generarPDF(){
         110);
 
     doc.line(20,120,190,120);
+    doc.setFont("helvetica","bold");
+doc.setFontSize(14);
+doc.text("TASAS DEL CRÉDITO HIPOTECARIO",20,135);
+
+doc.setFont("helvetica","normal");
+doc.setFontSize(10);
+
+doc.text("• Compensatoria: remunera el uso normal del dinero prestado.",20,145);
+
+doc.text("• Moratoria: sanciona el retraso en el pago de las cuotas.",20,155);
+
+doc.text("• Costo Efectivo: muestra el costo real del crédito incluyendo intereses, seguros y comisiones.",20,165);
+    doc.setFont("helvetica","bold");
+doc.setFontSize(13);
+
+doc.text("¿CUÁNTO ME CUESTA REALMENTE ESTE CRÉDITO HOY?",20,185);
+
+doc.setFont("helvetica","normal");
+doc.setFontSize(11);
+
+doc.text(
+"El Valor Presente Neto (VPN) trae todos los pagos futuros al valor de hoy.",
+20,
+195
+);
+
+doc.text(
+"VPN = S/ " + vpn.toLocaleString("es-PE",{minimumFractionDigits:2}),
+20,
+205
+);
 
     doc.setFont("helvetica","bold");
     doc.text("DICTAMEN PRELIMINAR",20,135);
