@@ -2,159 +2,192 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Hipoteca Financial Auditor Enterprise</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<div class="sidebar">
+    <!-- =========================
+         MENÚ LATERAL
+    ========================== -->
 
-    <div class="logo">
+    <aside class="sidebar">
 
-        <h1>🏦 HFA</h1>
+        <div class="logo">
+            <h1>🏦 HFA</h1>
+            <p>Enterprise v2.0</p>
+        </div>
 
-        <p>Enterprise</p>
+        <ul>
 
-    </div>
+            <li class="activo" onclick="mostrarDashboard()">
+                📊 Dashboard
+            </li>
 
-    <ul>
+            <li onclick="mostrarCronograma()">
+                📅 Cronograma
+            </li>
 
-        <li class="activo">📊 Dashboard</li>
+            <li onclick="mostrarIngenieria()">
+                📈 Ingeniería
+            </li>
 
-        <li onclick="mostrarCronograma()">📅 Cronograma</li>
+            <li onclick="mostrarAuditoria()">
+                🧾 Auditoría
+            </li>
 
-        <li>📈 Ingeniería</li>
+            <li onclick="mostrarReportes()">
+                📄 Reportes
+            </li>
 
-        <li>🧾 Auditoría</li>
+        </ul>
 
-        <li>📄 Reportes</li>
+    </aside>
 
-        <li>⚙ Configuración</li>
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
 
-    </ul>
+    <main class="main">
 
-</div>
+        <header>
 
-<div class="main">
+            <h1>HIPOTECA FINANCIAL AUDITOR</h1>
 
-<header>
+            <p>
+                Enterprise Edition 2.0
+            </p>
 
-<h1>HIPOTECA FINANCIAL AUDITOR</h1>
+        </header>
 
-<p>
-Enterprise Edition 2.0
-</p>
+        <!-- KPIs -->
 
-</header>
+        <section class="kpis">
 
-<section class="kpis">
+            <div class="card">
 
-<div class="card">
+                <h3>Cuota</h3>
 
-<h3>Cuota</h3>
+                <p id="cuota">S/ 0.00</p>
 
-<p id="cuota">S/ 0.00</p>
+            </div>
 
-</div>
+            <div class="card">
 
-<div class="card">
+                <h3>TEM</h3>
 
-<h3>TEM</h3>
+                <p id="tem">0.000000%</p>
 
-<p id="tem">0%</p>
+            </div>
 
-</div>
+            <div class="card">
 
-<div class="card">
+                <h3>VPN</h3>
 
-<h3>VPN</h3>
+                <p id="vpn">S/ 0.00</p>
 
-<p id="vpn">S/ 0.00</p>
+            </div>
 
-</div>
+            <div class="card">
 
-<div class="card">
+                <h3>Duración</h3>
 
-<h3>Duración</h3>
+                <p id="duracion">0 meses</p>
 
-<p id="duracion">0</p>
+            </div>
 
-</div>
+        </section>
 
-</section>
+        <!-- FORMULARIO -->
 
-<section class="panel">
+        <section class="panel">
 
-<div class="datos">
+            <div class="datos">
 
-<h2>Datos del Crédito</h2>
+                <h2>Datos del Crédito</h2>
 
-<label>Capital</label>
+                <label>Capital</label>
 
-<input id="capital" type="number" value="1343777.98">
+                <input
+                    id="capital"
+                    type="number"
+                    value="1343777.98">
 
-<label>TEA (%)</label>
+                <label>TEA (%)</label>
 
-<input id="tea" type="number" value="14.15">
+                <input
+                    id="tea"
+                    type="number"
+                    value="14.15">
 
-<label>Plazo (meses)</label>
+                <label>Plazo (meses)</label>
 
-<input id="plazo" type="number" value="180">
+                <input
+                    id="plazo"
+                    type="number"
+                    value="180">
 
-<button onclick="calcular()">
+                <button onclick="calcular()">
 
-Analizar Crédito
+                    Analizar Crédito
 
-</button>
+                </button>
 
-</div>
+            </div>
 
-<div class="grafico">
+            <div class="grafico">
 
-<h2>Dashboard Financiero</h2>
+                <h2>Dashboard Financiero</h2>
 
-<div class="placeholder">
+                <div class="placeholder">
 
-📊
+                    📊
 
-<br><br>
+                    <br><br>
 
-Aquí aparecerán los gráficos.
+                    Aquí aparecerán los gráficos financieros.
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
-<section class="dictamen">
+        <!-- OPINIÓN -->
 
-<h2>Opinión Técnica</h2>
+        <section class="dictamen">
 
-<div id="opinion">
-<section class="cronograma">
+            <h2>Opinión Técnica</h2>
 
-    <h2>Cronograma de Amortización</h2>
+            <div id="opinion">
 
-    <div id="cronograma"></div>
+                Esperando análisis...
 
-</section>
-Esperando análisis...
+            </div>
 
-</div>
+        </section>
 
-</section>
+        <!-- CRONOGRAMA -->
 
-</div>
+        <section class="cronograma">
 
-<script src="app.js"></script>
+            <h2>Cronograma de Amortización</h2>
+
+            <div id="cronograma">
+
+                Aún no se ha generado el cronograma.
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
 
 </body>
 
