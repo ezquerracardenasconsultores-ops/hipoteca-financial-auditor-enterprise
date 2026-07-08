@@ -137,16 +137,16 @@ function calcularCuota(){
 }
 
 //==========================================================
-// VALOR PRESENTE (VPN)
+// VALOR PRESENTE DE LAS CUOTAS
 //==========================================================
 
 function calcularVPN(){
 
-    vpn = 0;
+    let valorPresente = 0;
 
     for(let i=1;i<=plazo;i++){
 
-        vpn +=
+        valorPresente +=
 
             cuota /
 
@@ -159,6 +159,8 @@ function calcularVPN(){
             );
 
     }
+
+    vpn = valorPresente;
 
 }
 
