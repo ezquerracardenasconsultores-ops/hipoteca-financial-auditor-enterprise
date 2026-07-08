@@ -2,192 +2,527 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hipoteca Financial Auditor Enterprise</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Hipoteca Financial Auditor Enterprise
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
 </head>
 
 <body>
 
-    <!-- =========================
-         MENÚ LATERAL
-    ========================== -->
+<!-- =======================================================
+     SIDEBAR
+======================================================= -->
 
-    <aside class="sidebar">
+<aside class="sidebar">
 
-        <div class="logo">
-            <h1>🏦 HFA</h1>
-            <p>Enterprise v2.0</p>
-        </div>
+    <div class="logo">
+
+        <h1>🏦 HFA</h1>
+
+        <p>
+
+            Enterprise Edition
+
+        </p>
+
+    </div>
+
+    <nav>
 
         <ul>
 
-            <li class="activo" onclick="mostrarDashboard()">
+            <li id="menuDashboard">
+
                 📊 Dashboard
+
             </li>
 
-            <li onclick="mostrarCronograma()">
+            <li id="menuCronograma">
+
                 📅 Cronograma
+
             </li>
 
-            <li onclick="mostrarIngenieria()">
+            <li id="menuIngenieria">
+
                 📈 Ingeniería
+
             </li>
 
-            <li onclick="mostrarAuditoria()">
+            <li id="menuAuditoria">
+
                 🧾 Auditoría
+
             </li>
 
-            <li onclick="mostrarReportes()">
+            <li id="menuReportes">
+
                 📄 Reportes
+
+            </li>
+
+            <li id="menuConfiguracion">
+
+                ⚙ Configuración
+
             </li>
 
         </ul>
 
-    </aside>
+    </nav>
 
-    <!-- =========================
-         CONTENIDO
-    ========================== -->
+</aside>
 
-    <main class="main">
+<!-- =======================================================
+     CONTENIDO
+======================================================= -->
 
-        <header>
+<main class="main">
 
-            <h1>HIPOTECA FINANCIAL AUDITOR</h1>
+<header>
+
+    <div>
+
+        <h1>
+
+            HIPOTECA FINANCIAL AUDITOR
+
+        </h1>
+
+        <p>
+
+            Enterprise v2.0
+
+        </p>
+
+    </div>
+
+</header>
+
+<div id="contenido">
+    <!-- =======================================================
+     TARJETAS KPI
+======================================================= -->
+
+<section class="kpis">
+
+    <div class="card">
+
+        <h3>Cuota</h3>
+
+        <p id="cuota">
+
+            S/ 0.00
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>TEM</h3>
+
+        <p id="tem">
+
+            0.000000%
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>VPN</h3>
+
+        <p id="vpn">
+
+            S/ 0.00
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Duración</h3>
+
+        <p id="duracion">
+
+            0 meses
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     PANEL PRINCIPAL
+======================================================= -->
+
+<section class="panel">
+
+    <!-- FORMULARIO -->
+
+    <section class="datos">
+
+        <h2>
+
+            Datos del Crédito
+
+        </h2>
+
+        <label>
+
+            Capital
+
+        </label>
+
+        <input
+            id="capital"
+            type="number"
+            value="1343777.98">
+
+        <label>
+
+            TEA (%)
+
+        </label>
+
+        <input
+            id="tea"
+            type="number"
+            value="14.15">
+
+        <label>
+
+            Plazo (Meses)
+
+        </label>
+
+        <input
+            id="plazo"
+            type="number"
+            value="180">
+
+        <button
+            id="btnCalcular"
+            onclick="calcular()">
+
+            Analizar Crédito
+
+        </button>
+
+    </section>
+        <!-- DASHBOARD -->
+
+    <section class="grafico">
+
+        <h2>
+
+            Dashboard Financiero
+
+        </h2>
+
+        <div class="placeholder">
+
+            <div class="icono">
+
+                📊
+
+            </div>
+
+            <h3>
+
+                Gráficos Financieros
+
+            </h3>
 
             <p>
-                Enterprise Edition 2.0
+
+                Aquí se mostrarán los indicadores,
+                gráficos de amortización, saldo insoluto,
+                intereses y análisis financiero.
+
             </p>
 
-        </header>
+        </div>
 
-        <!-- KPIs -->
+    </section>
 
-        <section class="kpis">
+</section>
 
-            <div class="card">
+<!-- =======================================================
+     OPINIÓN TÉCNICA
+======================================================= -->
 
-                <h3>Cuota</h3>
+<section class="dictamen">
 
-                <p id="cuota">S/ 0.00</p>
+    <h2>
 
-            </div>
+        Opinión Técnica
 
-            <div class="card">
+    </h2>
 
-                <h3>TEM</h3>
+    <div id="opinion">
 
-                <p id="tem">0.000000%</p>
+        Esperando análisis del crédito...
 
-            </div>
+    </div>
 
-            <div class="card">
+</section>
+<!-- =======================================================
+     CRONOGRAMA DE AMORTIZACIÓN
+======================================================= -->
 
-                <h3>VPN</h3>
+<section class="cronograma">
 
-                <p id="vpn">S/ 0.00</p>
+    <div class="titulo-seccion">
 
-            </div>
+        <h2>
 
-            <div class="card">
+            Cronograma de Amortización
 
-                <h3>Duración</h3>
+        </h2>
 
-                <p id="duracion">0 meses</p>
+        <button id="btnGenerarCronograma">
 
-            </div>
+            Generar Cronograma
 
-        </section>
+        </button>
 
-        <!-- FORMULARIO -->
+    </div>
 
-        <section class="panel">
+    <div id="cronograma">
 
-            <div class="datos">
+        <table class="tablaCronograma">
 
-                <h2>Datos del Crédito</h2>
+            <thead>
 
-                <label>Capital</label>
+                <tr>
 
-                <input
-                    id="capital"
-                    type="number"
-                    value="1343777.98">
+                    <th>Cuota</th>
 
-                <label>TEA (%)</label>
+                    <th>Fecha</th>
 
-                <input
-                    id="tea"
-                    type="number"
-                    value="14.15">
+                    <th>Cuota</th>
 
-                <label>Plazo (meses)</label>
+                    <th>Interés</th>
 
-                <input
-                    id="plazo"
-                    type="number"
-                    value="180">
+                    <th>Amortización</th>
 
-                <button onclick="calcular()">
+                    <th>Saldo</th>
 
-                    Analizar Crédito
+                </tr>
 
-                </button>
+            </thead>
 
-            </div>
+            <tbody id="tbodyCronograma">
 
-            <div class="grafico">
+                <tr>
 
-                <h2>Dashboard Financiero</h2>
+                    <td colspan="6">
 
-                <div class="placeholder">
+                        Aún no se ha generado el cronograma.
 
-                    📊
+                    </td>
 
-                    <br><br>
+                </tr>
 
-                    Aquí aparecerán los gráficos financieros.
+            </tbody>
 
-                </div>
+        </table>
 
-            </div>
+    </div>
 
-        </section>
+</section>
 
-        <!-- OPINIÓN -->
+<!-- =======================================================
+     REPORTES
+======================================================= -->
 
-        <section class="dictamen">
+<section class="reportes">
 
-            <h2>Opinión Técnica</h2>
+    <h2>
 
-            <div id="opinion">
+        Reportes
 
-                Esperando análisis...
+    </h2>
 
-            </div>
+    <div class="botonesReportes">
 
-        </section>
+        <button id="btnPDF">
 
-        <!-- CRONOGRAMA -->
+            Exportar PDF
 
-        <section class="cronograma">
+        </button>
 
-            <h2>Cronograma de Amortización</h2>
+        <button id="btnExcel">
 
-            <div id="cronograma">
+            Exportar Excel
 
-                Aún no se ha generado el cronograma.
+        </button>
 
-            </div>
+        <button id="btnWord">
 
-        </section>
+            Exportar Word
 
-    </main>
+        </button>
 
-    <script src="app.js"></script>
+    </div>
+
+</section>
+<!-- =======================================================
+     INGENIERÍA FINANCIERA
+======================================================= -->
+
+<section class="ingenieria">
+
+    <h2>
+
+        Ingeniería Financiera
+
+    </h2>
+
+    <div class="gridIngenieria">
+
+        <div class="item">
+
+            <h3>Sistema</h3>
+
+            <p id="lblSistema">
+
+                Francés
+
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <h3>Tasa Mensual</h3>
+
+            <p id="lblTEM">
+
+                -
+
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <h3>Valor Presente</h3>
+
+            <p id="lblVPN">
+
+                -
+
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <h3>Duración Macaulay</h3>
+
+            <p id="lblMacaulay">
+
+                -
+
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <h3>Duración Modificada</h3>
+
+            <p id="lblModificada">
+
+                -
+
+            </p>
+
+        </div>
+
+        <div class="item">
+
+            <h3>Convexidad</h3>
+
+            <p id="lblConvexidad">
+
+                Próximamente
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================================
+     AUDITORÍA FINANCIERA
+======================================================= -->
+
+<section class="auditoria">
+
+    <h2>
+
+        Auditoría Financiera
+
+    </h2>
+
+    <div id="auditoriaResultado">
+
+        <p>
+
+            No se ha ejecutado la auditoría.
+
+        </p>
+
+    </div>
+
+</section>
+<!-- =======================================================
+     PIE DE PÁGINA
+======================================================= -->
+
+<footer class="footer">
+
+    <p>
+
+        Hipoteca Financial Auditor Enterprise v2.0
+
+    </p>
+
+    <p>
+
+        © 2026 Ezquerra & Cárdenas Consultores
+
+    </p>
+
+</footer>
+
+</div>
+
+</main>
+
+<script src="app.js"></script>
 
 </body>
 
