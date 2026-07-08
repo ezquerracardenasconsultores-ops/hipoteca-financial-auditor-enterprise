@@ -756,3 +756,52 @@ document.querySelectorAll(".menu").forEach(function(item){
 });
 
 console.log("Hipoteca Financial Auditor Enterprise V4 cargado correctamente.");
+//==========================================================
+// TABS DEL SISTEMA
+//==========================================================
+
+document.querySelectorAll(".tab").forEach(function(tab){
+
+    tab.addEventListener("click",function(){
+
+        document.querySelectorAll(".tab").forEach(function(t){
+
+            t.classList.remove("activo");
+
+        });
+
+        this.classList.add("activo");
+
+        const opcion = this.textContent.trim();
+
+        switch(opcion){
+
+            case "Cronograma":
+
+                generarCronograma();
+
+                break;
+
+            case "Ingeniería":
+
+                mostrarIngenieria();
+
+                break;
+
+            case "Auditoría":
+
+                mostrarAuditoria();
+
+                break;
+
+            case "Reportes":
+
+                mostrarReportes();
+
+                break;
+
+        }
+
+    });
+
+});
