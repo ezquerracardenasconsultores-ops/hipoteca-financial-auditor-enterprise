@@ -371,6 +371,10 @@ document.querySelectorAll(".tab").forEach(function(tab){
 
             case "Cronograma":
 
+    generarCronograma();
+
+    break;
+
                 document.getElementById("contenidoModulo").innerHTML =
                     "<h2>Cronograma de Amortización</h2><p>Próximamente se mostrará aquí el cronograma completo de cuotas.</p>";
                 break;
@@ -437,3 +441,92 @@ window.addEventListener("load", function(){
     console.log("=======================================");
 
 });
+//======================================================
+// CRONOGRAMA DE AMORTIZACIÓN
+//======================================================
+
+function generarCronograma(){
+
+    let saldo = capital;
+
+    let html = `
+
+    <h2>Cronograma de Amortización</h2>
+
+    <br>
+
+    <table class="tablaCronograma">
+
+        <thead>
+
+            <tr>
+
+                <th>N°</th>
+
+                <th>Saldo Inicial</th>
+
+                <th>Interés</th>
+
+                <th>Amortización</th>
+
+                <th>Cuota</th>
+
+                <th>Saldo Final</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+    `;
+
+    for(let i=1;i<=plazo;i++){
+
+        let interes = saldo * tem;
+
+        let amortizacion = cuota - interes;
+
+        let saldoFinal = saldo - amortizacion;
+
+        if(saldoFinal < 0){
+
+            saldoFinal = 0;
+
+        }
+
+        html += `
+
+        <tr>
+
+            <td>${i}</td>
+
+            <td>S/ ${saldo.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+
+            <td>S/ ${interes.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+
+            <td>S/ ${amortizacion.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+
+            <td>S/ ${cuota.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+
+            <td>S/ ${saldoFinal.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+
+        </tr>
+
+        `;
+
+        saldo = saldoFinal;
+
+    }
+
+    html += `
+
+        </tbody>
+
+    </table>
+
+    `;
+
+    document.getElementById("contenidoModulo").innerHTML = html;
+
+}
