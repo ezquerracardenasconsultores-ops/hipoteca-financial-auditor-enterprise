@@ -401,6 +401,10 @@ document.querySelectorAll(".tab").forEach(function(tab){
 
             case "Reportes":
 
+    mostrarReportes();
+
+    break;
+
                 document.getElementById("contenidoModulo").innerHTML =
                     "<h2>Reportes</h2><p>Desde aquí podrás exportar el informe en PDF, Excel y Word.</p>";
                 break;
@@ -666,6 +670,49 @@ function mostrarAuditoria(){
         </tr>
 
     </table>
+
+    `;
+
+    document.getElementById("contenidoModulo").innerHTML = html;
+
+}
+function mostrarReportes(){
+
+    let html = `
+
+    <h2>Centro de Reportes</h2>
+
+    <br>
+
+    <button id="btnPDF">
+
+        📄 Exportar PDF
+
+    </button>
+
+    <br><br>
+
+    <button id="btnExcel">
+
+        📊 Exportar Excel
+
+    </button>
+
+    <br><br>
+
+    <button id="btnWord">
+
+        📝 Exportar Word
+
+    </button>
+
+    <br><br>
+
+    <button id="btnImprimir">
+
+        🖨 Imprimir Dictamen
+
+    </button>
 
     `;
 
