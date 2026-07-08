@@ -391,6 +391,10 @@ document.querySelectorAll(".tab").forEach(function(tab){
 
             case "Auditoría":
 
+    mostrarAuditoria();
+
+    break;
+
                 document.getElementById("contenidoModulo").innerHTML =
                     "<h2>Auditoría Financiera</h2><p>Este módulo mostrará los hallazgos, alertas y observaciones periciales.</p>";
                 break;
@@ -597,6 +601,71 @@ function mostrarIngenieria(){
         </div>
 
     </div>
+
+    `;
+
+    document.getElementById("contenidoModulo").innerHTML = html;
+
+}
+function mostrarAuditoria(){
+
+    let html = `
+
+    <h2>Auditoría Financiera</h2>
+
+    <br>
+
+    <table class="tablaCronograma">
+
+        <tr>
+
+            <th>Hallazgo</th>
+
+            <th>Resultado</th>
+
+        </tr>
+
+        <tr>
+
+            <td>Sistema</td>
+
+            <td>Francés</td>
+
+        </tr>
+
+        <tr>
+
+            <td>TEM</td>
+
+            <td>${(tem*100).toFixed(6)} %</td>
+
+        </tr>
+
+        <tr>
+
+            <td>VPN</td>
+
+            <td>S/ ${vpn.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Duración</td>
+
+            <td>${duracion.toFixed(2)} meses</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Conclusión</td>
+
+            <td>El crédito presenta consistencia matemática bajo el Sistema Francés.</td>
+
+        </tr>
+
+    </table>
 
     `;
 
