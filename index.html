@@ -3,125 +3,118 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>
+<title>
 
-        Hipoteca Financial Auditor Enterprise
+Hipoteca Financial Auditor Enterprise
 
-    </title>
+</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
 
-<!-- =======================================================
-     SIDEBAR
-======================================================= -->
+<!--=========================================
+SIDEBAR
+==========================================-->
 
 <aside class="sidebar">
 
-    <div class="logo">
+<div class="logo">
 
-        <h1>🏦 HFA</h1>
+<h1>
 
-        <p>
+🏦 HFA
 
-            Enterprise Edition
+</h1>
 
-        </p>
+<p>
 
-    </div>
+Enterprise Edition
 
-    <nav>
+</p>
 
-        <ul>
+</div>
 
-            <li id="menuDashboard">
+<ul>
 
-                📊 Dashboard
+<li class="activo">
 
-            </li>
+📊 Dashboard
 
-            <li id="menuCronograma">
+</li>
 
-                📅 Cronograma
+<li>
 
-            </li>
+📅 Cronograma
 
-            <li id="menuIngenieria">
+</li>
 
-                📈 Ingeniería
+<li>
 
-            </li>
+📈 Ingeniería Financiera
 
-            <li id="menuAuditoria">
+</li>
 
-                🧾 Auditoría
+<li>
 
-            </li>
+🧾 Auditoría
 
-            <li id="menuReportes">
+</li>
 
-                📄 Reportes
+<li>
 
-            </li>
+📄 Reportes
 
-            <li id="menuConfiguracion">
+</li>
 
-                ⚙ Configuración
+<li>
 
-            </li>
+⚙ Configuración
 
-        </ul>
+</li>
 
-    </nav>
+</ul>
 
 </aside>
 
-<!-- =======================================================
-     CONTENIDO
-======================================================= -->
+<!--=========================================
+CONTENIDO
+==========================================-->
 
 <main class="main">
 
 <header>
 
-    <div>
+<h1>
 
-        <h1>
+HIPOTECA FINANCIAL AUDITOR
 
-            HIPOTECA FINANCIAL AUDITOR
+</h1>
 
-        </h1>
+<p>
 
-        <p>
+Enterprise v2.0
 
-            Enterprise v2.0
-
-        </p>
-
-    </div>
+</p>
 
 </header>
-
-<div id="contenido">
-    <!-- =======================================================
-     TARJETAS KPI
-======================================================= -->
+<!--=========================================
+KPIs
+==========================================-->
 
 <section class="kpis">
 
     <div class="card">
 
-        <h3>Cuota</h3>
+        <h3>Cuota Mensual</h3>
 
         <p id="cuota">
 
@@ -137,7 +130,7 @@
 
         <p id="tem">
 
-            0.000000%
+            0.000000 %
 
         </p>
 
@@ -169,15 +162,13 @@
 
 </section>
 
-<!-- =======================================================
-     PANEL PRINCIPAL
-======================================================= -->
+<!--=========================================
+PANEL PRINCIPAL
+==========================================-->
 
 <section class="panel">
 
-    <!-- FORMULARIO -->
-
-    <section class="datos">
+    <div class="datos">
 
         <h2>
 
@@ -192,8 +183,8 @@
         </label>
 
         <input
-            id="capital"
             type="number"
+            id="capital"
             value="1343777.98">
 
         <label>
@@ -203,8 +194,8 @@
         </label>
 
         <input
-            id="tea"
             type="number"
+            id="tea"
             value="14.15">
 
         <label>
@@ -214,8 +205,8 @@
         </label>
 
         <input
-            id="plazo"
             type="number"
+            id="plazo"
             value="180">
 
         <button
@@ -226,10 +217,12 @@
 
         </button>
 
-    </section>
-        <!-- DASHBOARD -->
+    </div>
+        <!--=========================================
+    DASHBOARD
+    ==========================================-->
 
-    <section class="grafico">
+    <div class="grafico">
 
         <h2>
 
@@ -237,37 +230,73 @@
 
         </h2>
 
-        <div class="placeholder">
+        <div class="dashboard">
 
-            <div class="icono">
+            <canvas id="graficoPrincipal">
 
-                📊
-
-            </div>
-
-            <h3>
-
-                Gráficos Financieros
-
-            </h3>
-
-            <p>
-
-                Aquí se mostrarán los indicadores,
-                gráficos de amortización, saldo insoluto,
-                intereses y análisis financiero.
-
-            </p>
+            </canvas>
 
         </div>
 
-    </section>
+        <div class="resumen">
+
+            <div class="resumenCard">
+
+                <h3>
+
+                    Capital
+
+                </h3>
+
+                <p id="lblCapital">
+
+                    S/ 1,343,777.98
+
+                </p>
+
+            </div>
+
+            <div class="resumenCard">
+
+                <h3>
+
+                    TEA
+
+                </h3>
+
+                <p id="lblTea">
+
+                    14.15 %
+
+                </p>
+
+            </div>
+
+            <div class="resumenCard">
+
+                <h3>
+
+                    Plazo
+
+                </h3>
+
+                <p id="lblPlazo">
+
+                    180 meses
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- =======================================================
-     OPINIÓN TÉCNICA
-======================================================= -->
+<!--=========================================
+DICTAMEN
+==========================================-->
 
 <section class="dictamen">
 
@@ -279,18 +308,18 @@
 
     <div id="opinion">
 
-        Esperando análisis del crédito...
+        Esperando análisis financiero...
 
     </div>
 
 </section>
-<!-- =======================================================
-     CRONOGRAMA DE AMORTIZACIÓN
-======================================================= -->
+<!--=========================================
+CRONOGRAMA DE AMORTIZACIÓN
+==========================================-->
 
 <section class="cronograma">
 
-    <div class="titulo-seccion">
+    <div class="tituloCronograma">
 
         <h2>
 
@@ -298,7 +327,8 @@
 
         </h2>
 
-        <button id="btnGenerarCronograma">
+        <button
+            id="btnGenerarCronograma">
 
             Generar Cronograma
 
@@ -306,17 +336,16 @@
 
     </div>
 
-    <div id="cronograma">
+    <div class="tablaResponsive">
 
-        <table class="tablaCronograma">
+        <table
+            class="tablaCronograma">
 
             <thead>
 
                 <tr>
 
-                    <th>Cuota</th>
-
-                    <th>Fecha</th>
+                    <th>N°</th>
 
                     <th>Cuota</th>
 
@@ -330,13 +359,14 @@
 
             </thead>
 
-            <tbody id="tbodyCronograma">
+            <tbody
+                id="tbodyCronograma">
 
                 <tr>
 
-                    <td colspan="6">
+                    <td colspan="5">
 
-                        Aún no se ha generado el cronograma.
+                        El cronograma aún no ha sido generado.
 
                     </td>
 
@@ -350,9 +380,84 @@
 
 </section>
 
-<!-- =======================================================
-     REPORTES
-======================================================= -->
+<!--=========================================
+INDICADORES FINANCIEROS
+==========================================-->
+
+<section class="indicadores">
+
+    <div class="indicador">
+
+        <h3>
+
+            Sistema
+
+        </h3>
+
+        <p id="lblSistema">
+
+            Francés
+
+        </p>
+
+    </div>
+
+    <div class="indicador">
+
+        <h3>
+
+            Riesgo
+
+        </h3>
+
+        <p id="lblRiesgo">
+
+            Pendiente
+
+        </p>
+
+    </div>
+
+    <div class="indicador">
+
+        <h3>
+
+            Estado
+
+        </h3>
+
+        <p id="lblEstado">
+
+            Sin evaluar
+
+        </p>
+
+    </div>
+
+</section>
+<!--=========================================
+AUDITORÍA FINANCIERA
+==========================================-->
+
+<section class="auditoria">
+
+    <h2>
+
+        Auditoría Financiera
+
+    </h2>
+
+    <div id="auditoriaResultado">
+
+        El análisis de auditoría se mostrará aquí después de ejecutar el cálculo.
+
+    </div>
+
+</section>
+
+<!--=========================================
+REPORTES
+==========================================-->
 
 <section class="reportes">
 
@@ -366,106 +471,118 @@
 
         <button id="btnPDF">
 
-            Exportar PDF
+            📄 Exportar PDF
 
         </button>
 
         <button id="btnExcel">
 
-            Exportar Excel
+            📊 Exportar Excel
 
         </button>
 
         <button id="btnWord">
 
-            Exportar Word
+            📝 Exportar Word
 
         </button>
 
     </div>
 
 </section>
-<!-- =======================================================
-     INGENIERÍA FINANCIERA
-======================================================= -->
 
-<section class="ingenieria">
+<!--=========================================
+OBSERVACIONES
+==========================================-->
+
+<section class="observaciones">
 
     <h2>
 
-        Ingeniería Financiera
+        Observaciones
 
     </h2>
 
-    <div class="gridIngenieria">
+    <textarea
+        id="txtObservaciones"
+        rows="6"
+        placeholder="Ingrese observaciones técnicas o periciales...">
+    </textarea>
 
-        <div class="item">
+</section>
+<!--=========================================
+RESUMEN EJECUTIVO
+==========================================-->
 
-            <h3>Sistema</h3>
+<section class="resumenEjecutivo">
 
-            <p id="lblSistema">
+    <h2>
 
-                Francés
+        Resumen Ejecutivo
 
-            </p>
+    </h2>
 
-        </div>
+    <div class="gridResumen">
 
-        <div class="item">
+        <div class="resumenItem">
 
-            <h3>Tasa Mensual</h3>
+            <h3>
 
-            <p id="lblTEM">
+                Capital Analizado
 
-                -
+            </h3>
 
-            </p>
+            <p id="resCapital">
 
-        </div>
-
-        <div class="item">
-
-            <h3>Valor Presente</h3>
-
-            <p id="lblVPN">
-
-                -
-
-            </p>
-
-        </div>
-
-        <div class="item">
-
-            <h3>Duración Macaulay</h3>
-
-            <p id="lblMacaulay">
-
-                -
+                S/ 0.00
 
             </p>
 
         </div>
 
-        <div class="item">
+        <div class="resumenItem">
 
-            <h3>Duración Modificada</h3>
+            <h3>
 
-            <p id="lblModificada">
+                Cuota Calculada
 
-                -
+            </h3>
+
+            <p id="resCuota">
+
+                S/ 0.00
 
             </p>
 
         </div>
 
-        <div class="item">
+        <div class="resumenItem">
 
-            <h3>Convexidad</h3>
+            <h3>
 
-            <p id="lblConvexidad">
+                Riesgo Financiero
 
-                Próximamente
+            </h3>
+
+            <p id="resRiesgo">
+
+                Pendiente
+
+            </p>
+
+        </div>
+
+        <div class="resumenItem">
+
+            <h3>
+
+                Estado del Crédito
+
+            </h3>
+
+            <p id="resEstado">
+
+                Sin evaluar
 
             </p>
 
@@ -475,54 +592,90 @@
 
 </section>
 
-<!-- =======================================================
-     AUDITORÍA FINANCIERA
-======================================================= -->
-
-<section class="auditoria">
-
-    <h2>
-
-        Auditoría Financiera
-
-    </h2>
-
-    <div id="auditoriaResultado">
-
-        <p>
-
-            No se ha ejecutado la auditoría.
-
-        </p>
-
-    </div>
-
-</section>
-<!-- =======================================================
-     PIE DE PÁGINA
-======================================================= -->
+<!--=========================================
+PIE DEL SISTEMA
+==========================================-->
 
 <footer class="footer">
 
-    <p>
+    <div>
 
-        Hipoteca Financial Auditor Enterprise v2.0
+        <strong>
 
-    </p>
+            Hipoteca Financial Auditor Enterprise
 
-    <p>
+        </strong>
 
-        © 2026 Ezquerra & Cárdenas Consultores
+    </div>
 
-    </p>
+    <div>
+
+        Versión 2.0
+
+    </div>
+
+    <div>
+
+        Powered by Ezquerra & Cárdenas Consultores
+
+    </div>
 
 </footer>
+<!--=========================================
+LIBRERÍAS
+==========================================-->
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- jsPDF -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- SheetJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<!--=========================================
+MODALES FUTUROS
+==========================================-->
+
+<div id="modalSistema" class="modal oculto">
+
+    <div class="modalContenido">
+
+        <h2>
+
+            Hipoteca Financial Auditor
+
+        </h2>
+
+        <div id="contenidoModal">
+
+        </div>
+
+        <button
+            id="cerrarModal">
+
+            Cerrar
+
+        </button>
+
+    </div>
 
 </div>
 
-</main>
+<!--=========================================
+SCRIPTS
+==========================================-->
 
 <script src="app.js"></script>
+<!--=========================================
+CIERRE DEL CONTENIDO
+==========================================-->
+
+</main>
 
 </body>
 
