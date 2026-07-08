@@ -678,6 +678,62 @@ function mostrarAuditoria(){
 }
 function mostrarReportes(){
 
+document.getElementById("contenidoModulo").innerHTML=`
+
+<h2>Centro de Reportes</h2>
+
+<div class="panelReportes">
+
+<div class="cardReporte">
+
+<h3>📄 PDF</h3>
+
+<p>Informe Pericial Financiero</p>
+
+<button id="btnPDF">
+
+Generar PDF
+
+</button>
+
+</div>
+
+<div class="cardReporte">
+
+<h3>📊 Excel</h3>
+
+<p>Cronograma</p>
+
+<button id="btnExcel">
+
+Próximamente
+
+</button>
+
+</div>
+
+<div class="cardReporte">
+
+<h3>📝 Word</h3>
+
+<p>Dictamen</p>
+
+<button id="btnWord">
+
+Próximamente
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+document.getElementById("btnPDF").onclick=generarPDF;
+
+}
+
     let html = `
 
     <h2>Centro de Reportes</h2>
@@ -717,5 +773,82 @@ function mostrarReportes(){
     `;
 
     document.getElementById("contenidoModulo").innerHTML = html;
+
+}
+//==================================================
+// PDF
+//==================================================
+
+function generarPDF(){
+
+const {jsPDF}=window.jspdf;
+
+const pdf=new jsPDF();
+
+pdf.setFontSize(18);
+
+pdf.text("HIPOTECA FINANCIAL AUDITOR",20,20);
+
+pdf.setFontSize(12);
+
+pdf.text("INFORME PERICIAL FINANCIERO",20,30);
+
+pdf.line(20,35,190,35);
+
+pdf.text("Capital : S/ "+capital.toLocaleString("es-PE"),20,50);
+
+pdf.text("TEA : "+tea.toFixed(2)+" %",20,60);
+
+pdf.text("TEM : "+(tem*100).toFixed(6)+" %",20,70);
+
+pdf.text("Plazo : "+plazo+" meses",20,80);
+
+pdf.text("Cuota : S/ "+cuota.toLocaleString("es-PE",{minimumFractionDigits:2}),20,90);
+
+pdf.text("VPN : S/ "+vpn.toLocaleString("es-PE",{minimumFractionDigits:2}),20,100);
+
+pdf.text("Duración : "+duracion.toFixed(2)+" meses",20,110);
+
+pdf.line(20,120,190,120);
+
+pdf.setFontSize(14);
+
+pdf.text("DICTAMEN PRELIMINAR",20,135);
+
+pdf.setFontSize(11);
+
+pdf.text(
+
+"El crédito fue analizado utilizando el Sistema Francés de amortización.",
+
+20,
+
+150
+
+);
+
+pdf.text(
+
+"La evaluación matemática no evidencia inconsistencias.",
+
+20,
+
+160
+
+);
+
+pdf.line(20,180,190,180);
+
+pdf.text(
+
+"Hipoteca Financial Auditor Enterprise",
+
+20,
+
+195
+
+);
+
+pdf.save("Informe_Pericial.pdf");
 
 }
