@@ -303,9 +303,11 @@ function dibujarGrafico(){
 
         options:{
 
-            responsive:true,
+    responsive:true,
 
-            maintainAspectRatio:false,
+    maintainAspectRatio:true,
+
+    aspectRatio:2.8,
 
             plugins:{
                 legend:{
