@@ -848,3 +848,84 @@ function mostrarAuditoria(){
     document.getElementById("contenidoModulo").innerHTML = html;
 
 }
+/*==================================================
+REPORTES
+==================================================*/
+
+.panelReportes{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-top:25px;
+
+}
+
+.cardReporte{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.30s;
+
+}
+
+.cardReporte:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.cardReporte h3{
+
+    margin-bottom:15px;
+
+    color:#1e293b;
+
+}
+
+.cardReporte p{
+
+    color:#64748b;
+
+    margin-bottom:20px;
+
+}
+
+.cardReporte button{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.30s;
+
+}
+
+.cardReporte button:hover{
+
+    background:#1d4ed8;
+
+}
