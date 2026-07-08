@@ -62,8 +62,6 @@ function calcular(){
 
     dibujarGrafico();
 
-    mostrarIngenieria();
-
 }
 
 //==========================================================
