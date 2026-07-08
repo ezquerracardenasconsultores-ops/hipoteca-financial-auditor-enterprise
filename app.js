@@ -129,3 +129,8 @@ function generarCronograma(capital, tea, plazo){
     document.getElementById("cronograma").innerHTML = html;
 
 }
+function mostrarCronograma(){
+
+    alert("Módulo Cronograma próximamente disponible.");
+
+}
