@@ -1,6 +1,6 @@
-//======================================================
-// HIPOTECA FINANCIAL AUDITOR ENTERPRISE V3.0
-//======================================================
+//==========================================================
+// HIPOTECA FINANCIAL AUDITOR ENTERPRISE V4.0
+//==========================================================
 
 // VARIABLES GLOBALES
 
@@ -13,15 +13,35 @@ let cuota = 0;
 let vpn = 0;
 let duracion = 0;
 
-let grafico = null;
+let graficoPrincipal = null;
 
-//======================================================
-// FUNCIÓN PRINCIPAL
-//======================================================
+//==========================================================
+// INICIO DEL SISTEMA
+//==========================================================
+
+window.onload = function(){
+
+    console.clear();
+
+    console.log("======================================");
+
+    console.log("HIPOTECA FINANCIAL AUDITOR");
+
+    console.log("Enterprise V4.0");
+
+    console.log("Sistema iniciado correctamente");
+
+    console.log("======================================");
+
+};
+
+//==========================================================
+// BOTÓN PRINCIPAL
+//==========================================================
 
 function calcular(){
 
-    leerDatos();
+    obtenerDatos();
 
     calcularTEM();
 
@@ -33,36 +53,54 @@ function calcular(){
 
     actualizarDashboard();
 
-    generarDictamen();
-
     dibujarGrafico();
 
 }
 
-//======================================================
-// LECTURA DE DATOS
-//======================================================
+//==========================================================
+// OBTENER DATOS
+//==========================================================
 
-function leerDatos(){
+function obtenerDatos(){
 
-    capital = parseFloat(document.getElementById("capital").value);
+    capital = parseFloat(
 
-    tea = parseFloat(document.getElementById("tea").value);
+        document.getElementById("capital").value
 
-    plazo = parseInt(document.getElementById("plazo").value);
+    );
 
-    if(isNaN(capital) || isNaN(tea) || isNaN(plazo)){
+    tea = parseFloat(
 
-        alert("Ingrese correctamente todos los datos.");
+        document.getElementById("tea").value
+
+    );
+
+    plazo = parseInt(
+
+        document.getElementById("plazo").value
+
+    );
+
+    if(
+
+        isNaN(capital) ||
+
+        isNaN(tea) ||
+
+        isNaN(plazo)
+
+    ){
+
+        alert("Complete correctamente todos los datos.");
 
         throw new Error("Datos inválidos");
 
     }
 
 }
-//======================================================
-// TEA → TEM
-//======================================================
+//==========================================================
+// CONVERSIÓN TEA → TEM
+//==========================================================
 
 function calcularTEM(){
 
@@ -76,37 +114,35 @@ function calcularTEM(){
 
 }
 
-//======================================================
+//==========================================================
 // SISTEMA FRANCÉS
-//======================================================
+//==========================================================
 
 function calcularCuota(){
 
-    cuota =
+    cuota = capital *
 
-        capital *
+    (
 
-        (
+        (tem * Math.pow(1 + tem, plazo))
 
-            (tem * Math.pow(1 + tem, plazo))
+        /
 
-            /
+        (Math.pow(1 + tem, plazo) - 1)
 
-            (Math.pow(1 + tem, plazo) - 1)
-
-        );
+    );
 
 }
 
-//======================================================
-// VALOR PRESENTE
-//======================================================
+//==========================================================
+// VALOR PRESENTE (VPN)
+//==========================================================
 
 function calcularVPN(){
 
     vpn = 0;
 
-    for(let i = 1; i <= plazo; i++){
+    for(let i=1;i<=plazo;i++){
 
         vpn +=
 
@@ -124,9 +160,9 @@ function calcularVPN(){
 
 }
 
-//======================================================
+//==========================================================
 // DURACIÓN DE MACAULAY
-//======================================================
+//==========================================================
 
 function calcularDuracion(){
 
@@ -134,9 +170,9 @@ function calcularDuracion(){
 
     let sumaTiempo = 0;
 
-    for(let i = 1; i <= plazo; i++){
+    for(let i=1;i<=plazo;i++){
 
-        const vp =
+        let vp =
 
             cuota /
 
@@ -162,13 +198,13 @@ function calcularDuracion(){
 
 }
 
-//======================================================
-// ACTUALIZAR DASHBOARD
-//======================================================
+//==========================================================
+// ACTUALIZAR TARJETAS
+//==========================================================
 
 function actualizarDashboard(){
 
-    document.getElementById("cuota").innerHTML =
+    document.getElementById("cuota").textContent =
 
         "S/ " +
 
@@ -180,13 +216,13 @@ function actualizarDashboard(){
 
         });
 
-    document.getElementById("tem").innerHTML =
+    document.getElementById("tem").textContent =
 
-        (tem*100).toFixed(6) + " %";
+        (tem*100).toFixed(6)+" %";
 
-    document.getElementById("vpn").innerHTML =
+    document.getElementById("vpn").textContent =
 
-        "S/ " +
+        "S/ "+
 
         vpn.toLocaleString("es-PE",{
 
@@ -196,13 +232,13 @@ function actualizarDashboard(){
 
         });
 
-    document.getElementById("duracion").innerHTML =
+    document.getElementById("duracion").textContent =
 
-        duracion.toFixed(2) + " meses";
+        duracion.toFixed(2)+" meses";
 
-    document.getElementById("lblCapital").innerHTML =
+    document.getElementById("lblCapital").textContent =
 
-        "S/ " +
+        "S/ "+
 
         capital.toLocaleString("es-PE",{
 
@@ -210,77 +246,43 @@ function actualizarDashboard(){
 
         });
 
-    document.getElementById("lblTea").innerHTML =
+    document.getElementById("lblTea").textContent =
 
-        tea.toFixed(2) + " %";
+        tea.toFixed(2)+" %";
 
-    document.getElementById("lblPlazo").innerHTML =
+    document.getElementById("lblPlazo").textContent =
 
-        plazo + " meses";
-
-}
-//======================================================
-// DICTAMEN AUTOMÁTICO
-//======================================================
-
-function generarDictamen(){
-
-    let html = "";
-
-    html += "<h2>DICTAMEN PRELIMINAR</h2><br>";
-
-    html += "✔ Conversión TEA → TEM correcta.<br>";
-
-    html += "✔ Sistema Francés identificado.<br>";
-
-    html += "✔ Valor Presente Neto calculado.<br>";
-
-    html += "✔ Duración de Macaulay calculada.<br><br>";
-
-    if(tea<=20){
-
-        html += "<span style='color:green;font-weight:bold'>RIESGO FINANCIERO : MODERADO</span><br><br>";
-
-    }else{
-
-        html += "<span style='color:red;font-weight:bold'>RIESGO FINANCIERO : ELEVADO</span><br><br>";
-
-    }
-
-    html += "El crédito fue evaluado utilizando equivalencia financiera y el Sistema Francés de amortización.";
-
-    document.getElementById("contenidoModulo").innerHTML = html;
+        plazo+" meses";
 
 }
-
-//======================================================
-// DASHBOARD (CHART.JS)
-//======================================================
+//==========================================================
+// DASHBOARD - CHART.JS
+//==========================================================
 
 function dibujarGrafico(){
 
-    const ctx = document.getElementById("graficoPrincipal");
+    const canvas = document.getElementById("graficoPrincipal");
 
-    if(grafico){
-
-        grafico.destroy();
-
+    if(!canvas){
+        return;
     }
 
-    grafico = new Chart(ctx,{
+    if(graficoPrincipal){
+        graficoPrincipal.destroy();
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    graficoPrincipal = new Chart(ctx,{
 
         type:"bar",
 
         data:{
 
             labels:[
-
                 "Capital",
-
                 "Cuota",
-
                 "VPN"
-
             ],
 
             datasets:[{
@@ -288,13 +290,9 @@ function dibujarGrafico(){
                 label:"Análisis Financiero",
 
                 data:[
-
                     capital,
-
                     cuota,
-
                     vpn
-
                 ]
 
             }]
@@ -305,24 +303,12 @@ function dibujarGrafico(){
 
             responsive:true,
 
+            maintainAspectRatio:false,
+
             plugins:{
-
                 legend:{
-
                     display:false
-
                 }
-
-            },
-
-            scales:{
-
-                y:{
-
-                    beginAtZero:true
-
-                }
-
             }
 
         }
@@ -330,132 +316,10 @@ function dibujarGrafico(){
     });
 
 }
-//======================================================
-// HIPOTECA FINANCIAL AUDITOR ENTERPRISE
-// BLOQUE FINAL
-//======================================================
 
-// Navegación básica del menú
-document.querySelectorAll(".menu").forEach(function(boton){
-
-    boton.addEventListener("click", function(){
-
-        document.querySelectorAll(".menu").forEach(function(item){
-
-            item.classList.remove("activo");
-
-        });
-
-        this.classList.add("activo");
-
-    });
-
-});
-
-// Navegación de Tabs
-document.querySelectorAll(".tab").forEach(function(tab){
-
-    tab.addEventListener("click", function(){
-
-        document.querySelectorAll(".tab").forEach(function(t){
-
-            t.classList.remove("activo");
-
-        });
-
-        this.classList.add("activo");
-
-        const nombre = this.textContent.trim();
-
-        switch(nombre){
-
-            case "Cronograma":
-
-    generarCronograma();
-
-    break;
-
-                document.getElementById("contenidoModulo").innerHTML =
-                    "<h2>Cronograma de Amortización</h2><p>Próximamente se mostrará aquí el cronograma completo de cuotas.</p>";
-                break;
-
-            case "Ingeniería":
-
-    mostrarIngenieria();
-
-    break;
-
-                document.getElementById("contenidoModulo").innerHTML =
-                    "<h2>Ingeniería Financiera</h2><p>Aquí se incorporarán VAN, TIR, Convexidad, Duración Modificada y análisis de sensibilidad.</p>";
-                break;
-
-            case "Auditoría":
-
-    mostrarAuditoria();
-
-    break;
-
-                document.getElementById("contenidoModulo").innerHTML =
-                    "<h2>Auditoría Financiera</h2><p>Este módulo mostrará los hallazgos, alertas y observaciones periciales.</p>";
-                break;
-
-            case "Reportes":
-
-    mostrarReportes();
-
-    break;
-
-                document.getElementById("contenidoModulo").innerHTML =
-                    "<h2>Reportes</h2><p>Desde aquí podrás exportar el informe en PDF, Excel y Word.</p>";
-                break;
-
-        }
-
-    });
-
-});
-
-//======================================================
-// BOTONES DE REPORTES
-//======================================================
-
-const btnPDF = document.getElementById("btnPDF");
-if(btnPDF){
-    btnPDF.addEventListener("click", function(){
-        alert("Exportación a PDF disponible en la versión 3.1.");
-    });
-}
-
-const btnExcel = document.getElementById("btnExcel");
-if(btnExcel){
-    btnExcel.addEventListener("click", function(){
-        alert("Exportación a Excel disponible en la versión 3.1.");
-    });
-}
-
-const btnWord = document.getElementById("btnWord");
-if(btnWord){
-    btnWord.addEventListener("click", function(){
-        alert("Exportación a Word disponible en la versión 3.1.");
-    });
-}
-
-//======================================================
-// INICIALIZACIÓN
-//======================================================
-
-window.addEventListener("load", function(){
-
-    console.log("=======================================");
-    console.log("Hipoteca Financial Auditor Enterprise");
-    console.log("Versión 3.0");
-    console.log("Sistema iniciado correctamente");
-    console.log("=======================================");
-
-});
-//======================================================
-// CRONOGRAMA DE AMORTIZACIÓN
-//======================================================
+//==========================================================
+// CRONOGRAMA
+//==========================================================
 
 function generarCronograma(){
 
@@ -465,39 +329,37 @@ function generarCronograma(){
 
     <h2>Cronograma de Amortización</h2>
 
-    <br>
-
     <table class="tablaCronograma">
 
-        <thead>
+    <thead>
 
-            <tr>
+    <tr>
 
-                <th>N°</th>
+        <th>N°</th>
 
-                <th>Saldo Inicial</th>
+        <th>Saldo Inicial</th>
 
-                <th>Interés</th>
+        <th>Interés</th>
 
-                <th>Amortización</th>
+        <th>Amortización</th>
 
-                <th>Cuota</th>
+        <th>Cuota</th>
 
-                <th>Saldo Final</th>
+        <th>Saldo Final</th>
 
-            </tr>
+    </tr>
 
-        </thead>
+    </thead>
 
-        <tbody>
+    <tbody>
 
     `;
 
     for(let i=1;i<=plazo;i++){
 
-        let interes = saldo * tem;
+        const interes = saldo * tem;
 
-        let amortizacion = cuota - interes;
+        const amortizacion = cuota - interes;
 
         let saldoFinal = saldo - amortizacion;
 
@@ -513,15 +375,15 @@ function generarCronograma(){
 
             <td>${i}</td>
 
-            <td>S/ ${saldo.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+            <td>${saldo.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
 
-            <td>S/ ${interes.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+            <td>${interes.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
 
-            <td>S/ ${amortizacion.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+            <td>${amortizacion.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
 
-            <td>S/ ${cuota.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+            <td>${cuota.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
 
-            <td>S/ ${saldoFinal.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+            <td>${saldoFinal.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
 
         </tr>
 
@@ -531,28 +393,20 @@ function generarCronograma(){
 
     }
 
-    html += `
-
-        </tbody>
-
-    </table>
-
-    `;
+    html += "</tbody></table>";
 
     document.getElementById("contenidoModulo").innerHTML = html;
 
 }
-//======================================================
+//==========================================================
 // INGENIERÍA FINANCIERA
-//======================================================
+//==========================================================
 
 function mostrarIngenieria(){
 
-    let html = `
+    document.getElementById("contenidoModulo").innerHTML = `
 
     <h2>Ingeniería Financiera</h2>
-
-    <br>
 
     <div class="gridIndicadores">
 
@@ -608,74 +462,90 @@ function mostrarIngenieria(){
 
     `;
 
-    document.getElementById("contenidoModulo").innerHTML = html;
-
 }
+
+//==========================================================
+// AUDITORÍA
+//==========================================================
+
 function mostrarAuditoria(){
 
-    let html = `
+document.getElementById("contenidoModulo").innerHTML=`
 
-    <h2>Auditoría Financiera</h2>
+<h2>Auditoría Financiera</h2>
 
-    <br>
+<table class="tablaAuditoria">
 
-    <table class="tablaCronograma">
+<tr>
 
-        <tr>
+<th>Hallazgo</th>
 
-            <th>Hallazgo</th>
+<th>Resultado</th>
 
-            <th>Resultado</th>
+</tr>
 
-        </tr>
+<tr>
 
-        <tr>
+<td>Sistema</td>
 
-            <td>Sistema</td>
+<td>Francés</td>
 
-            <td>Francés</td>
+</tr>
 
-        </tr>
+<tr>
 
-        <tr>
+<td>TEA</td>
 
-            <td>TEM</td>
+<td>${tea.toFixed(2)} %</td>
 
-            <td>${(tem*100).toFixed(6)} %</td>
+</tr>
 
-        </tr>
+<tr>
 
-        <tr>
+<td>TEM</td>
 
-            <td>VPN</td>
+<td>${(tem*100).toFixed(6)} %</td>
 
-            <td>S/ ${vpn.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
+</tr>
 
-        </tr>
+<tr>
 
-        <tr>
+<td>VPN</td>
 
-            <td>Duración</td>
+<td>S/ ${vpn.toLocaleString("es-PE",{minimumFractionDigits:2})}</td>
 
-            <td>${duracion.toFixed(2)} meses</td>
+</tr>
 
-        </tr>
+<tr>
 
-        <tr>
+<td>Duración</td>
 
-            <td>Conclusión</td>
+<td>${duracion.toFixed(2)} meses</td>
 
-            <td>El crédito presenta consistencia matemática bajo el Sistema Francés.</td>
+</tr>
 
-        </tr>
+<tr>
 
-    </table>
+<td>Resultado</td>
 
-    `;
+<td class="estadoBueno">
 
-    document.getElementById("contenidoModulo").innerHTML = html;
+Consistencia matemática correcta.
+
+</td>
+
+</tr>
+
+</table>
+
+`;
 
 }
+
+//==========================================================
+// REPORTES
+//==========================================================
+
 function mostrarReportes(){
 
 document.getElementById("contenidoModulo").innerHTML=`
@@ -688,7 +558,7 @@ document.getElementById("contenidoModulo").innerHTML=`
 
 <h3>📄 PDF</h3>
 
-<p>Informe Pericial Financiero</p>
+<p>Informe Pericial</p>
 
 <button id="btnPDF">
 
@@ -706,7 +576,7 @@ Generar PDF
 
 <button id="btnExcel">
 
-Próximamente
+Generar Excel
 
 </button>
 
@@ -720,7 +590,7 @@ Próximamente
 
 <button id="btnWord">
 
-Próximamente
+Generar Word
 
 </button>
 
@@ -732,123 +602,157 @@ Próximamente
 
 document.getElementById("btnPDF").onclick=generarPDF;
 
-}
+document.getElementById("btnExcel").onclick=function(){
 
-    let html = `
-
-    <h2>Centro de Reportes</h2>
-
-    <br>
-
-    <button id="btnPDF">
-
-        📄 Exportar PDF
-
-    </button>
-
-    <br><br>
-
-    <button id="btnExcel">
-
-        📊 Exportar Excel
-
-    </button>
-
-    <br><br>
-
-    <button id="btnWord">
-
-        📝 Exportar Word
-
-    </button>
-
-    <br><br>
-
-    <button id="btnImprimir">
-
-        🖨 Imprimir Dictamen
-
-    </button>
-
-    `;
-
-    document.getElementById("contenidoModulo").innerHTML = html;
+alert("Excel disponible en el siguiente bloque.");
 
 }
-//==================================================
-// PDF
-//==================================================
+
+document.getElementById("btnWord").onclick=function(){
+
+alert("Word disponible en el siguiente bloque.");
+
+}
+
+}
+//==========================================================
+// GENERAR PDF
+//==========================================================
 
 function generarPDF(){
 
-const {jsPDF}=window.jspdf;
+    const { jsPDF } = window.jspdf;
 
-const pdf=new jsPDF();
+    const doc = new jsPDF();
 
-pdf.setFontSize(18);
+    doc.setFont("helvetica","bold");
+    doc.setFontSize(18);
+    doc.text("HIPOTECA FINANCIAL AUDITOR",20,20);
 
-pdf.text("HIPOTECA FINANCIAL AUDITOR",20,20);
+    doc.setFontSize(13);
+    doc.text("INFORME PERICIAL FINANCIERO",20,30);
 
-pdf.setFontSize(12);
+    doc.line(20,35,190,35);
 
-pdf.text("INFORME PERICIAL FINANCIERO",20,30);
+    doc.setFont("helvetica","normal");
 
-pdf.line(20,35,190,35);
+    doc.text("Capital : S/ " + capital.toLocaleString("es-PE"),20,50);
 
-pdf.text("Capital : S/ "+capital.toLocaleString("es-PE"),20,50);
+    doc.text("TEA : " + tea.toFixed(2) + " %",20,60);
 
-pdf.text("TEA : "+tea.toFixed(2)+" %",20,60);
+    doc.text("TEM : " + (tem*100).toFixed(6) + " %",20,70);
 
-pdf.text("TEM : "+(tem*100).toFixed(6)+" %",20,70);
+    doc.text("Plazo : " + plazo + " meses",20,80);
 
-pdf.text("Plazo : "+plazo+" meses",20,80);
+    doc.text("Cuota : S/ " +
+        cuota.toLocaleString("es-PE",{minimumFractionDigits:2}),
+        20,
+        90);
 
-pdf.text("Cuota : S/ "+cuota.toLocaleString("es-PE",{minimumFractionDigits:2}),20,90);
+    doc.text("VPN : S/ " +
+        vpn.toLocaleString("es-PE",{minimumFractionDigits:2}),
+        20,
+        100);
 
-pdf.text("VPN : S/ "+vpn.toLocaleString("es-PE",{minimumFractionDigits:2}),20,100);
+    doc.text("Duración : " +
+        duracion.toFixed(2) +
+        " meses",
+        20,
+        110);
 
-pdf.text("Duración : "+duracion.toFixed(2)+" meses",20,110);
+    doc.line(20,120,190,120);
 
-pdf.line(20,120,190,120);
+    doc.setFont("helvetica","bold");
+    doc.text("DICTAMEN PRELIMINAR",20,135);
 
-pdf.setFontSize(14);
+    doc.setFont("helvetica","normal");
 
-pdf.text("DICTAMEN PRELIMINAR",20,135);
+    doc.text(
 
-pdf.setFontSize(11);
+        "El crédito fue analizado utilizando el Sistema Francés.",
 
-pdf.text(
+        20,
 
-"El crédito fue analizado utilizando el Sistema Francés de amortización.",
+        150
 
-20,
+    );
 
-150
+    doc.text(
 
-);
+        "La evaluación matemática no evidencia inconsistencias.",
 
-pdf.text(
+        20,
 
-"La evaluación matemática no evidencia inconsistencias.",
+        160
 
-20,
+    );
 
-160
+    doc.text(
 
-);
+        "Este reporte fue generado automáticamente.",
 
-pdf.line(20,180,190,180);
+        20,
 
-pdf.text(
+        170
 
-"Hipoteca Financial Auditor Enterprise",
+    );
 
-20,
+    doc.line(20,185,190,185);
 
-195
+    doc.setFont("helvetica","italic");
 
-);
+    doc.text(
 
-pdf.save("Informe_Pericial.pdf");
+        "Hipoteca Financial Auditor Enterprise",
+
+        20,
+
+        198
+
+    );
+
+    doc.save("Informe_Pericial.pdf");
 
 }
+
+//==========================================================
+// GENERAR EXCEL
+//==========================================================
+
+function generarExcel(){
+
+    alert("La exportación a Excel será desarrollada en la siguiente versión.");
+
+}
+
+//==========================================================
+// GENERAR WORD
+//==========================================================
+
+function generarWord(){
+
+    alert("La exportación a Word será desarrollada en la siguiente versión.");
+
+}
+
+//==========================================================
+// ACTIVAR MENÚ
+//==========================================================
+
+document.querySelectorAll(".menu").forEach(function(item){
+
+    item.addEventListener("click",function(){
+
+        document.querySelectorAll(".menu").forEach(function(x){
+
+            x.classList.remove("activo");
+
+        });
+
+        this.classList.add("activo");
+
+    });
+
+});
+
+console.log("Hipoteca Financial Auditor Enterprise V4 cargado correctamente.");
