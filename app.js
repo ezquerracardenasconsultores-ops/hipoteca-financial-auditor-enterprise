@@ -5,16 +5,18 @@
 // VARIABLES GLOBALES
 
 let capital = 0;
+
 let tea = 0;
+
 let plazo = 0;
+
+let tem = 0;
 
 let cuota = 0;
 
 let vpn = 0;
 
 let vpnCredito = 0;
-
-let duracion = 0;
 
 let duracion = 0;
 
@@ -702,8 +704,7 @@ doc.text("¿CUÁNTO ME CUESTA REALMENTE ESTE CRÉDITO HOY?",20,185);
 doc.setFont("helvetica","normal");
 doc.setFontSize(11);
 
-doc.text(
-"El Valor Presente Neto (VPN) trae todos los pagos futuros al valor de hoy.",
+doc.text("El Valor Presente Neto (VPN) trae todos los pagos futuros al valor de hoy.",
 20,
 195
 );
