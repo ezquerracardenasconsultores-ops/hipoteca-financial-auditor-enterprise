@@ -381,6 +381,10 @@ document.querySelectorAll(".tab").forEach(function(tab){
 
             case "Ingeniería":
 
+    mostrarIngenieria();
+
+    break;
+
                 document.getElementById("contenidoModulo").innerHTML =
                     "<h2>Ingeniería Financiera</h2><p>Aquí se incorporarán VAN, TIR, Convexidad, Duración Modificada y análisis de sensibilidad.</p>";
                 break;
@@ -524,6 +528,75 @@ function generarCronograma(){
         </tbody>
 
     </table>
+
+    `;
+
+    document.getElementById("contenidoModulo").innerHTML = html;
+
+}
+//======================================================
+// INGENIERÍA FINANCIERA
+//======================================================
+
+function mostrarIngenieria(){
+
+    let html = `
+
+    <h2>Ingeniería Financiera</h2>
+
+    <br>
+
+    <div class="gridIndicadores">
+
+        <div class="cardIndicador">
+
+            <h3>TEM</h3>
+
+            <h2>${(tem*100).toFixed(6)} %</h2>
+
+        </div>
+
+        <div class="cardIndicador">
+
+            <h3>TEA</h3>
+
+            <h2>${tea.toFixed(2)} %</h2>
+
+        </div>
+
+        <div class="cardIndicador">
+
+            <h3>Cuota</h3>
+
+            <h2>S/ ${cuota.toLocaleString("es-PE",{minimumFractionDigits:2})}</h2>
+
+        </div>
+
+        <div class="cardIndicador">
+
+            <h3>VPN</h3>
+
+            <h2>S/ ${vpn.toLocaleString("es-PE",{minimumFractionDigits:2})}</h2>
+
+        </div>
+
+        <div class="cardIndicador">
+
+            <h3>Duración</h3>
+
+            <h2>${duracion.toFixed(2)} meses</h2>
+
+        </div>
+
+        <div class="cardIndicador">
+
+            <h3>Sistema</h3>
+
+            <h2>Francés</h2>
+
+        </div>
+
+    </div>
 
     `;
 
