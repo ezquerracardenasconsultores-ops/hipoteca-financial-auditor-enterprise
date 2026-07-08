@@ -8,13 +8,13 @@ let capital = 0;
 let tea = 0;
 let plazo = 0;
 
-let tem = 0;
-
 let cuota = 0;
 
 let vpn = 0;
 
 let vpnCredito = 0;
+
+let duracion = 0;
 
 let duracion = 0;
 
