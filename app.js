@@ -54,6 +54,8 @@ function calcular(){
 
     calcularVPN();
 
+    calcularVPNCredito();
+
     calcularDuracion();
 
     actualizarDashboard();
