@@ -55,6 +55,8 @@ function calcular(){
 
     dibujarGrafico();
 
+    mostrarIngenieria();
+
 }
 
 //==========================================================
