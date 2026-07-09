@@ -8,14 +8,23 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>
+    <title>Hipoteca Financial Auditor Enterprise</title>
 
-        Hipoteca Financial Auditor Enterprise
+    <!-- CSS -->
 
-    </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-    <link rel="stylesheet"
-          href="style.css">
+    <!-- Librerías -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 </head>
 
@@ -23,7 +32,9 @@
 
 <div class="layout">
 
-    <!-- SIDEBAR -->
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
 
     <aside class="sidebar">
 
@@ -31,43 +42,49 @@
 
             <h1>🏦 HFA</h1>
 
-            <span>Enterprise</span>
+            <span>Hipoteca Financial Auditor Enterprise</span>
 
         </div>
 
-        <nav>
+        <nav id="menuPrincipal">
 
-            <button class="menu activo">
+            <button class="menu active"
+                    data-module="dashboard">
 
                 📊 Dashboard
 
             </button>
 
-            <button class="menu">
+            <button class="menu"
+                    data-module="cronograma">
 
                 📅 Cronograma
 
             </button>
 
-            <button class="menu">
+            <button class="menu"
+                    data-module="ingenieria">
 
-                📈 Ingeniería
+                📈 Ingeniería Financiera
 
             </button>
 
-            <button class="menu">
+            <button class="menu"
+                    data-module="auditoria">
 
                 🧾 Auditoría
 
             </button>
 
-            <button class="menu">
+            <button class="menu"
+                    data-module="reportes">
 
                 📄 Reportes
 
             </button>
 
-            <button class="menu">
+            <button class="menu"
+                    data-module="configuracion">
 
                 ⚙ Configuración
 
@@ -77,315 +94,78 @@
 
     </aside>
 
-    <!-- CONTENIDO -->
+    <!-- =========================================
+         CONTENIDO
+    ========================================== -->
 
-    <main class="contenido">
+    <main class="main">
 
-        <header>
+        <header class="header">
 
-            <h1>
+            <div>
 
-                Hipoteca Financial Auditor Enterprise
+                <h1>
 
-            </h1>
+                    Hipoteca Financial Auditor Enterprise
 
-            <p>
+                </h1>
 
-                Software Profesional de Auditoría Financiera Hipotecaria
+                <p>
 
-            </p>
+                    Software Profesional de Auditoría Financiera Hipotecaria
+
+                </p>
+
+            </div>
 
         </header>
 
         <!-- KPIs -->
 
-        <section class="kpis">
-
-            <article class="kpi">
-
-                <h3>Cuota</h3>
-
-                <span id="cuota">
-
-                    S/ 0.00
-
-                </span>
-
-            </article>
-
-            <article class="kpi">
-
-                <h3>TEM</h3>
-
-                <span id="tem">
-
-                    0 %
-
-                </span>
-
-            </article>
-
-            <article class="kpi">
-
-                <h3>Valor Presente</h3>
-
-                <span id="vpn">
-
-                    S/ 0.00
-
-                </span>
-
-            </article>
-
-            <article class="kpi">
-
-                <h3>Duración</h3>
-
-                <span id="duracion">
-
-                    0 meses
-
-                </span>
-
-            </article>
+        <section
+                id="dashboardKPIs"
+                class="dashboardKPIs">
 
         </section>
-                <!--=========================================
-        PANEL PRINCIPAL
-        ==========================================-->
 
-        <section class="panel">
+        <!-- Contenido dinámico -->
 
-            <!-- FORMULARIO -->
-
-            <div class="formulario">
-
-                <h2>
-
-                    Datos del Crédito
-
-                </h2>
-
-                <label>
-
-                    Capital
-
-                </label>
-
-                <input
-                    type="number"
-                    id="capital"
-                    value="1343777.98">
-
-                <label>
-
-                    TEA (%)
-
-                </label>
-
-                <input
-                    type="number"
-                    id="tea"
-                    value="14.15">
-
-                <label>
-
-                    Plazo (Meses)
-
-                </label>
-
-                <input
-                    type="number"
-                    id="plazo"
-                    value="180">
-
-                <button
-                    id="btnAnalizar"
-                    onclick="calcular()">
-
-                    Analizar Crédito
-
-                </button>
-
-            </div>
-
-            <!-- DASHBOARD -->
-
-            <div class="dashboard">
-
-                <div class="dashboardHeader">
-
-                    <h2>
-
-                        Dashboard Financiero
-
-                    </h2>
-
-                </div>
-
-                <canvas
-                    id="graficoPrincipal"
-                    height="120">
-
-                </canvas>
-
-                <div class="estadisticas">
-
-                    <div class="estadistica">
-
-                        <span>
-
-                            Capital
-
-                        </span>
-
-                        <strong id="lblCapital">
-
-                            S/ 1,343,777.98
-
-                        </strong>
-
-                    </div>
-
-                    <div class="estadistica">
-
-                        <span>
-
-                            TEA
-
-                        </span>
-
-                        <strong id="lblTea">
-
-                            14.15 %
-
-                        </strong>
-
-                    </div>
-
-                    <div class="estadistica">
-
-                        <span>
-
-                            Plazo
-
-                        </span>
-
-                        <strong id="lblPlazo">
-
-                            180 meses
-
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
+        <section
+                id="app">
 
         </section>
-
-        <!--=========================================
-        TABS DEL SISTEMA
-        ==========================================-->
-
-        <section class="tabs">
-
-            <button class="tab activo">
-
-                Cronograma
-
-            </button>
-
-            <button class="tab">
-
-                Ingeniería
-
-            </button>
-
-            <button class="tab">
-
-                Auditoría
-
-            </button>
-
-            <button class="tab">
-
-                Reportes
-
-            </button>
-
-        </section>
-
-        <!--=========================================
-        PANEL DINÁMICO
-        ==========================================-->
-
-        <section class="contenidoSistema">
-
-            <div id="contenidoModulo">
-
-                Seleccione una opción o pulse
-                <strong>Analizar Crédito</strong>.
-
-            </div>
-
-        </section>
-                <!--=========================================
-        FOOTER
-        ==========================================-->
-
-        <footer class="footer">
-
-            <div>
-
-                <strong>
-
-                    Hipoteca Financial Auditor Enterprise
-
-                </strong>
-
-            </div>
-
-            <div>
-
-                Versión 3.0
-
-            </div>
-
-            <div>
-
-                Powered by Ezquerra & Cárdenas Consultores
-
-            </div>
-
-        </footer>
 
     </main>
 
 </div>
 
-<!--=========================================
-LIBRERÍAS
-==========================================-->
+<!-- ==========================
+     JavaScript
+=========================== -->
 
-<!-- Chart.js -->
+<script src="js/utils.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/router.js"></script>
 
-<!-- jsPDF -->
+<script src="js/dashboard.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/cronograma.js"></script>
 
-<!-- SheetJS -->
+<script src="js/ingenieria.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="js/auditoria.js"></script>
 
-<!--=========================================
-JAVASCRIPT
-==========================================-->
+<script src="js/reportes.js"></script>
 
-<script src="app.js"></script>
+<script src="js/exportPdf.js"></script>
+
+<script src="js/exportExcel.js"></script>
+
+<script src="js/exportWord.js"></script>
+
+<script src="js/charts.js"></script>
+
+<script src="js/app.js"></script>
 
 </body>
 
